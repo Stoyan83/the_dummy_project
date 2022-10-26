@@ -1,7 +1,7 @@
 <%= form_with(model: resource, url: session_path(resource_name), data: { turbo: false }) do |f| %> 
   <% if flash.any? %>
     <div id="error_explanation" class="bg-red-100 rounded-md p-4 mb-4">
-     <%= render 'shared/flash' %>
+      <%= render 'shared/flash' %>
   <% end %>
   <div class="mb-4">    
     <%= f.email_field :email, placeholder: :Email, autofocus: true, autocomplete: "email", class: "border border-gray-300 rounded-sm w-full" %>
