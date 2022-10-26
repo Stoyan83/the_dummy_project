@@ -34,3 +34,5 @@ group :development do
   gem "web-console"
 end
 
+
+gem "tailwindcss-rails", "~> 2.0"
