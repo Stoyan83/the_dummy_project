@@ -3,29 +3,33 @@
     <div id="error_explanation" class="bg-red-100 rounded-md p-4 mb-4">
       <%= render 'shared/flash' %>
   <% end %>
-  <div class="mb-4">    
-    <%= f.email_field :email, placeholder: :Email, autofocus: true, autocomplete: "email", class: "border border-gray-300 rounded-sm w-full" %>
-  </div>
+    <div class="px-8 py-6 mt-4 text-left bg-white shadow-lg">
+        <h3 class="text-2xl font-bold text-center">Login to your account</h3>
+        <form action="">
+            <div class="mt-4">
+                <div>
+                    <label class="block" for="email">Email<label>
 
-  <div class="mb-4">
-    <%= f.password_field :password, placeholder: :Password, class: "border border-gray-300 rounded-sm w-full" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+                            <%= f.email_field :email, placeholder: :Email, autofocus: true, autocomplete: "email",
+                                class: "w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" %>
+                </div>
+                <div class="mt-4">
+                    <label class="block">Password<label>
+                            <%= f.password_field :password, placeholder: :Password,
+                                class: "w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" %>
+                </div>
+                <div class="flex items-baseline justify-between">
+                    <button class="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Login</button>                 
+                     <%= link_to 'Cancel', root_path, class: "cursor-pointer inline-flex items-center px-6 py-2 mt-4 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-4" %>               
+                     <%= link_to 'Forgot password?', new_user_password_path, class: "text-sm text-blue-600 hover:underline" %> 
+                                       
+                </div>
+                <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
+                  <p class="text-sm text-blue-600 hover:underline">
+                      Don't have an account yet? 
+                     <%= link_to 'Sign up', new_user_registration_path, class: "font-medium text-primary-600 hover:underline dark:text-primary-500" %>
+                  </p>
+            </div>
+        </form>
     </div>
-  <% end %>
-
-   <div class="flex items-center">
-    <%= f.submit "Log in", class: "cursor-pointer inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-4" %>
-    <% if !current_user %>
-      <%= link_to 'Cancel', root_path %>
-    <% end %>
-  </div>
 <% end %>
-
-<%# <%= render "devise/shared/links" %>
-
- 
