@@ -1,5 +1,12 @@
 <div id="messagesContainer">
-  <% flash.each do |type, msg|%>
-    <%= content_tag :div, msg, class: build_alert_classes(type) %>
+ 
+  <% flash.each do |type, msg|%>   
+    <%= content_tag :div, msg, class: build_alert_classes(type) do%>
+      <button><span>&times;</span></button>
+      <%= msg %>
+    <% end %>
   <% end %>
 </div>
+
+ 
+

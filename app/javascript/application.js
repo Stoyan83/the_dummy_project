@@ -2,6 +2,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
+// Toggle navbar
 document.addEventListener("turbo:load", function() {
 $(document).ready(function () {
   $(".nav-toggler").each(function (_, navToggler) {
@@ -15,4 +16,10 @@ $(document).ready(function () {
 });
 });
 
+// Hide alerts
+$(document).ready(function() {
+  $(document).on('click','.error', function() {
+      $(this).remove();
+  });
+});
 
