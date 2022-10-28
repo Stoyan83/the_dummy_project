@@ -1,5 +1,6 @@
 <% if current_user %>
   <h1> Welcome <%= current_user.username.capitalize %>
+  <%= link_to 'Link', user_path(current_user.username) %>
 <% end %>
 
 

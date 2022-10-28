@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  extend FriendlyId
+  friendly_id :username, use: [:slugged, :finders]
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -6,7 +9,7 @@ class User < ApplicationRecord
 
   attr_writer :login      
   validate :validate_username, on: :create
-  validates_uniqueness_of :username, :email
+  validates_uniqueness_of :username, :email 
 
   validates :password, length: { minimum: 6, maximum: 20 }, on: :create
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, length: {maximum: 320} 

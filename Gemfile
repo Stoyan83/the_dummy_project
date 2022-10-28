@@ -25,6 +25,8 @@ gem "bootsnap", require: false
 
 gem 'devise'
 
+gem 'friendly_id', '~> 5.4.0'
+
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rspec-rails', '~> 6.0.0'
