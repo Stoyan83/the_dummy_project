@@ -23,3 +23,10 @@ $(document).ready(function() {
   });
 });
 
+// Confimration on delete user
+
+window.confirmDestroy = ("turbolinks:load", function(message) {
+  if (!confirm(message)) {
+    return false;
+  }
+})
