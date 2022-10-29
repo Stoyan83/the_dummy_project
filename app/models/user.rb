@@ -7,7 +7,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  attr_writer :login      
+  attr_writer :login    
+  has_many :pages, dependent: :delete_all
+  has_one_attached :avatar
+
   validate :validate_username, on: :create
   validates_uniqueness_of :username, :email 
 
