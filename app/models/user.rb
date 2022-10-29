@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   extend FriendlyId
-  friendly_id :username, use: [:slugged, :finders]
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -18,6 +17,7 @@ class User < ApplicationRecord
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, length: {maximum: 320} 
   validates :username, presence: true, length: { in: 3..40 }, format: { with: /\A[a-zA-Z0-9]+\z/, on: :create,message: "empty spaces not allowed" } 
 
+  friendly_id :username, use: %i[slugged finders history]
   
   def validate_username
     if User.where(username: username).exists?

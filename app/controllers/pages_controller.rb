@@ -63,6 +63,8 @@ class PagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_page
       @page = Page.find(params[:id])
+  
+      redirect_to @page, status: :moved_permanently if params[:id] != @page.slug     
     end
 
     # Only allow a list of trusted parameters through.
