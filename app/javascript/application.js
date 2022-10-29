@@ -2,6 +2,8 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
+
+
 // Toggle navbar
 document.addEventListener("turbo:load", function() {
 $(document).ready(function () {
@@ -24,9 +26,36 @@ $(document).ready(function() {
 });
 
 // Confimration on delete user
-
 window.confirmDestroy = ("turbolinks:load", function(message) {
   if (!confirm(message)) {
     return false;
   }
 })
+
+
+
+// Showing and hiding edit forms in edit profile
+document.addEventListener("turbo:load", function() {
+  $('#hid').click(function () {
+      if ($('#hidden').is(':hidden')) {
+          $('#hidden').show();
+          $('#hid').text('Hide').button("refresh");
+      } else {
+          $('#hidden').hide();
+          $('#hid').text('Edit').button("refresh");
+      }
+    }); 
+  });
+
+
+  document.addEventListener("turbo:load", function() {
+    $('#ph').click(function () {
+        if ($('.hid').is(':hidden')) {
+            $('.hid').show();
+            $('#ph').text('Hide password fields').button("refresh");
+        } else {
+            $('.hid').hide();
+            $('#ph').text('Change password').button("refresh");
+        }
+      }); 
+    });

@@ -35,3 +35,17 @@ body {
     display: inline-flex !important;
   }
 }
+
+
+#hidden{
+  display: none;
+}
+
+.hid{
+  display: none;
+  
+}
+
+#ph {
+  cursor: pointer;
+}

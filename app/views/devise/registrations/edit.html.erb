@@ -1,26 +1,33 @@
-<div class="h-full "> 
+<div class="h-full"> 
   <div class="border-b-2 block md:flex rounded  shadow p-6 ">
     <div class="w-full md:w-2/5 p-4 sm:p-6 lg:p-8 bg-white shadow-md">
-     <%= link_to "Back", :back, class: "bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" %>
-
-     <a href="#" class="-mt-2 text-md font-bold text-white bg-gray-700 rounded-full px-5 py-2 hover:bg-gray-800 m-25 ">Edit</a>        
-     
+    <div class="grid grid-cols-6 gap-4">
+    <div class="col-start-1 col-span-5">
+     <%= link_to "Back", :back, class: "bg-transparent hover:bg-blue-500 rounded-full text-gray-600 font-semibold hover:text-white py-2 px-4 border border-grey-600 hover:border-transparent rounded " %>
+    </div>
+    <div>
+     <button id="hid", class="-mt-2 text-md font-bold text-white bg-gray-700 rounded-full px-5 py-2 hover:bg-gray-800 m-25 ">Edit</button>
+     </div>
+     </div>  
      <div class="flex justify-between">
-      
-        <span class="text-xl font-semibold block pt-10">Admin Profile</span>
+    
+        <span class="text-xl font-semibold block pt-10"><%= "#{current_user.username.humanize}'s profile" %></span>
         
       </div>
       
-      <span class="text-gray-600">This information is secret so be careful</span>
+      <span class="text-gray-600">Click Edit to change or view your profile</span>
       <div class="w-full p-8 mx-2 flex justify-center">
         <img id="showImage" class="max-w-xs w-32 items-center border" src="https://images.unsplash.com/photo-1477118476589-bff2c5c4cfbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=200" alt="">   
         </div>                
    </div> 
 
-  <div class="w-full md:w-3/5 p-8 bg-white lg:ml-4 shadow-md">
+  <div id="hidden" class="w-full md:w-3/5 p-8 bg-white lg:ml-4 shadow-md">
 
   <div class="pb-6">
     <span class="text-gray-600 block opacity-70">Personal login information of your account</span>
+    <span>&#8593;&#8595;<span>
+    <span id="ph" class="font-medium text-gray-600 hover:underline dark:text-primary-500 ">Change password</span>
+   
   </div>
 
 <%= form_with(model: resource, url: registration_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f| %> 
@@ -43,51 +50,35 @@
     <div class="flex">
     <%= f.email_field :email, class: "border-1  rounded-r px-4 py-2 w-full", autofocus: true, autocomplete: "on" %>
     </div>  
-
-    <div class="pb-6">
-      <label for="name" class="font-semibold text-gray-700 block pb-1">Password</label>    
+    
+    <div class="hid">
+      <label for="name" class="font-semibold text-gray-700 block pb-1">New password</label>    
     <div class="flex">
       <%= f.password_field :password, class: "border-1  rounded-r px-4 py-2 w-full", placeholder: "**********" %>
     </div>
 
-    <div class="pb-6">
+    <div class="hid">
       <label for="name" class="font-semibold text-gray-700 block pb-1">Confirm password</label>    
     <div class="flex">
       <%= f.password_field :password_confirmation, class: "border-1  rounded-r px-4 py-2 w-full", placeholder: "**********" %>
     </div>
 
-     <div class="pb-6">
+   
+ 
+      </div>
+    </div>
+  </div>
+  <div class="pb-6">
       <label for="name" class="font-semibold text-gray-700 block pb-1">Current password</label>    
     <div class="flex">
       <%= f.password_field :current_password, class: "border-1  rounded-r px-4 py-2 w-full", placeholder: "**********" %>
     </div> 
         <div class="pb-6">
           
-          </div>    
+    </div>    
      <div class="pb-6">
       <%= f.submit "Update", class: "-mt-2 text-md font-bold text-white bg-gray-700 rounded-full px-5 py-2 hover:bg-gray-800" %>
-    </div>
-      <div class="pb-6">
-          </div>
-            <div class="pb-6">
-          <div class="flex">
-          </div>
-            <div class="pb-6">
-          </div>
-            <div class="pb-6">
-          </div>
-            <div class="pb-6">
-         
-          </div>
-            <div class="pb-6">
-          
-          </div>
-                        
-        </div>
-      </div>
-    </div>
-  </div>
-<div class="pb-6">          
+    </div>        
 <% end %>
 
 
