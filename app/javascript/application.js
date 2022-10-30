@@ -59,3 +59,10 @@ document.addEventListener("turbo:load", function() {
         }
       }); 
     });
+
+// Preview avatar picture 
+
+window.preview = ("turbolinks:load", function() {
+      frame.src=URL.createObjectURL(event.target.files[0]);
+ });
+

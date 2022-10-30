@@ -1,3 +1,12 @@
+
+<%= form_with(model: resource, url: registration_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f| %> 
+  <% if resource.errors.any? %>
+    <div id="error_explanation" class="bg-red-100 rounded-md p-4 mb-4">
+      <%= render "devise/shared/error_messages", resource: resource %>
+    </div>
+  <% end %>
+   <% end %>
+
 <div class="h-full"> 
   <div class="border-b-2 block md:flex rounded  shadow p-6 ">
     <div class="w-full md:w-2/5 p-4 sm:p-6 lg:p-8 bg-white shadow-md">
@@ -17,8 +26,11 @@
       
       <span class="text-gray-600">Click Edit to change or view your profile</span>
       <div class="w-full p-8 mx-2 flex justify-center">
-        <img id="showImage" class="max-w-xs w-32 items-center border" src="https://images.unsplash.com/photo-1477118476589-bff2c5c4cfbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=200" alt="">   
-        </div>                
+        <% if current_user.avatar.present? %>
+        <%= image_tag(current_user.avatar, class: "max-w-xs w-32 items-center border" ) %>  
+        <% end %>  
+        </div>   
+               
    </div> 
 
   <div id="hidden" class="w-full md:w-3/5 p-8 bg-white lg:ml-4 shadow-md">
@@ -31,11 +43,19 @@
   </div>
 
 <%= form_with(model: resource, url: registration_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f| %> 
-  <% if resource.errors.any? %>
-    <div id="error_explanation" class="bg-red-100 rounded-md p-4 mb-4">
-      <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="pb-6">
+    </div>         
+    <label for="name" class="font-semibold text-gray-700 block pb-1">Picture</label>          
+    <div class="flex">
+     <%= f.file_field :avatar, class: "block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400", onchange: 'preview()' %>   
     </div>
-  <% end %>
+
+    <div class="pb-6">                  
+    <div class="flex">
+      <img id="frame" src="" width="100px" height="100px"/>
+    </div>
+
+
     <div class="pb-6">
     </div>         
     <label for="name" class="font-semibold text-gray-700 block pb-1">Username</label>          
@@ -86,3 +106,6 @@
 <%= button_to "Cancel my account", registration_path(resource_name), :method => :delete, onclick: "return confirmDestroy('Are you sure want cancel your account?')", class: "h-10 px-5 m-2 text-red-100 transition-colors duration-150 bg-red-700 rounded-lg focus:shadow-outline hover:bg-red-800" %>
 </div> 
 
+<script>
+
+</script>
