@@ -2,11 +2,9 @@ class Page < ApplicationRecord
   extend FriendlyId
 
   belongs_to :user
-
   friendly_id :slug_candidates, use: %i[slugged finders history]
 
-  def slug_candidates
-    
+  def slug_candidates  
 
     [
       user.username,

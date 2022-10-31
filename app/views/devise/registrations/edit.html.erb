@@ -1,9 +1,7 @@
-
+<%= render 'shared/flash' %>
 <%= form_with(model: resource, url: registration_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f| %> 
   <% if resource.errors.any? %>
-    <div id="error_explanation" class="bg-red-100 rounded-md p-4 mb-4">
       <%= render "devise/shared/error_messages", resource: resource %>
-    </div>
   <% end %>
    <% end %>
 
@@ -52,7 +50,7 @@
 
     <div class="pb-6">                  
     <div class="flex">
-      <img id="frame" src="" width="100px" height="100px"/>
+      <img id="frame" src="" width="100px" height="100px">
     </div>
 
 
@@ -106,6 +104,3 @@
 <%= button_to "Cancel my account", registration_path(resource_name), :method => :delete, onclick: "return confirmDestroy('Are you sure want cancel your account?')", class: "h-10 px-5 py-2 text-red-100 transition-colors duration-150 bg-red-700 rounded-full focus:shadow-outline hover:bg-red-800" %>
 </div> 
 
-<script>
-
-</script>
