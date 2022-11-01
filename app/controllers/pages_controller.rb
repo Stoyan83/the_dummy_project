@@ -1,13 +1,14 @@
 class PagesController < ApplicationController
+  
   load_and_authorize_resource
 
   before_action :set_page, only: %i[ show edit update destroy ]
   # before_action :authenticate_user!, except: [:show]  
-  
+
 
   # GET /pages or /pages.json
   def index    
-    @pages = current_or_guest_user.pages.order(created_at: :asc)    
+    @pages = current_user.pages.order(created_at: :asc)    
   end
 
 
@@ -27,7 +28,7 @@ class PagesController < ApplicationController
   # POST /pages or /pages.json
   def create
     # @page = Page.new(page_params)
-    @page = current_or_guest_user.pages.new(page_params)
+    @page = current_user.pages.new(page_params)
 
     respond_to do |format|
       if @page.save

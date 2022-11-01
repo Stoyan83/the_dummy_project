@@ -1,15 +1,18 @@
 module AuthorizationHelper
-
-  def current_or_guest_user
-    if current_user
-      if cookies.signed[:guest_user_id]    
-        guest_user.delete
-        cookies.delete :guest_user_id
-      end
-      current_user
-    else
-      guest_user
-    end
+  
+  # def current_or_guest_user
+  #   if current_user
+  #     if cookies.signed[:guest_user_id]    
+  #       guest_user.delete
+  #       cookies.delete :guest_user_id
+  #     end
+  #     current_user
+  #   else
+  #     guest_user
+  #   end
+  # end
+  def current_user
+    super || guest_user
   end
 
   def guest_user
