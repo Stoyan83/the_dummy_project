@@ -1,27 +1,8 @@
 class ApplicationController < ActionController::Base
+  include AuthorizationHelper
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-
-
-  def current_user
-    super || guest_user
-  end
-
-  private
-
-  def guest_user
-    begin
-      User.find(session[:guest_user_id].nil? ? session[:guest_user_id] = create_guest_user.id : session[:guest_user_id])
-    rescue
-      reset_session
-    end
-  end
-
-  def create_guest_user
-    u = User.create(:username => "guest_#{Time.now.to_i}#{rand(99)}", :email => "guest_#{Time.now.to_i}#{rand(99)}@example.com", :guest => true)
-    u.save(:validate => false)
-    u
-  end
+ 
   
   protected
 
