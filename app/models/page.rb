@@ -1,8 +1,18 @@
 class Page < ApplicationRecord
   extend FriendlyId
+  
+
+  PAGE_LIMIT = 1
 
   belongs_to :user
   friendly_id :slug_candidates, use: %i[slugged finders history]
+
+
+  validate on: :create do
+    if user.guest? && user.pages.length > PAGE_LIMIT 
+    errors.add(:user, message: "have too many pages")
+    end
+  end
 
   def slug_candidates  
 

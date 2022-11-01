@@ -1,5 +1,9 @@
-<% if current_user %>
+<% if !current_user.guest %>
   <h1> Welcome <%= current_user.username.capitalize %></h1>
+<% elsif current_user.guest %>
+  <h1> Welcome <%= current_user.username[0..4].capitalize %></h1>
+<% else %>
+  <h1> Your free account has experid clean your browser coockies to use new one or sign up</h1>
 <% end %>
 
   <h1 class="text-3xl lg:text-5xl font-bold text-grey-600">

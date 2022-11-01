@@ -1,9 +1,13 @@
 class PagesController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_page, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: [:show]
+  # before_action :authenticate_user!, except: [:show]  
+  
+
   # GET /pages or /pages.json
-  def index
-    @pages = current_user.pages.order(created_at: :asc)
+  def index    
+    @pages = current_user.pages.order(created_at: :asc)    
   end
 
 
@@ -71,4 +75,5 @@ class PagesController < ApplicationController
     def page_params
       params.require(:page).permit(:first_name, :last_name, :about)
     end
+
 end

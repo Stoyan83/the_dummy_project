@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   attr_writer :login    
-  has_many :pages, dependent: :delete_all
+  has_many :pages, dependent: :destroy
   has_one_attached :avatar 
 
   validate :validate_username, on: :create
