@@ -17,12 +17,13 @@
       >
 
       <%= link_to "Pages", pages_path, class:"lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white" %>
+   
       <% if !current_user.guest? %>
         <%= link_to "Profile", edit_user_registration_path, class:"lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white" %>
-        
       <% end %>
       <%= link_to "Dummy", root_path, class:"lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white" %>
       <%= link_to "Dummy", root_path, class:"lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white" %>
+     
       <% if !current_user.guest? %>
         <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class:"lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white" %>
       <% else %>
@@ -31,6 +32,8 @@
       </div>
     </div>
   </nav>
+
+  
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="

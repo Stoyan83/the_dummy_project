@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     begin
       User.find(session[:guest_user_id].nil? ? session[:guest_user_id] = create_guest_user.id : session[:guest_user_id])
     rescue
-      session[:user_id] = nil
+      reset_session
     end
   end
 
