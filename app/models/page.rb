@@ -3,8 +3,9 @@ class Page < ApplicationRecord
 
   PAGE_LIMIT = 1
 
-  belongs_to :user
   friendly_id :slug_candidates, use: %i[slugged finders history]
+  belongs_to :user
+  has_one_attached :avatar 
 
 
   validate on: :create do

@@ -20,10 +20,11 @@
                 class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
                 <div @click.away="open = false" class="relative" x-data="{ open: false }">
                     <button @click="open = !open"
-                        class="flex flex-row items-center space-x-2 w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent hover:bg-blue-800 md:w-auto md:inline md:mt-0 md:ml-4 hover:bg-gray-200 focus:bg-blue-800 focus:outline-none focus:shadow-outline">
-                        <span><%= "#{page.first_name} #{page.last_name}" %></span>
-                        <img class="inline h-6 rounded-full"
-                            src="https://avatars2.githubusercontent.com/u/24622175?s=60&amp;v=4">
+                        class="flex flex-row items-center space-x-2 w-full px-4 py-2 mt-2 text-sm font-semibold text-let bg-transparent hover:bg-blue-800 md:w-auto md:inline md:mt-0 md:ml-4 hover:bg-gray-200 focus:bg-blue-800 focus:outline-none focus:shadow-outline">
+                        <span><%= "#{page.first_name} #{page.last_name}" %></span>                    
+                        <% if page.avatar.present? %>
+                            <%= image_tag page.avatar, class: "inline h-8 rounded-full" %>
+                        <% end %>                       
                         <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}"
                             class="inline w-4 h-4 transition-transform duration-200 transform">
                             <path fill-rule="evenodd"
@@ -58,10 +59,10 @@
             <div class="w-full md:w-3/12 md:mx-2">
                 <!-- Profile Card -->
                 <div class="bg-white p-3 ">
-                    <div class="image overflow-hidden">
-                        <img class="h-auto w-full mx-auto"
-                            src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
-                            alt="">
+                    <div class="image overflow-hidden">                       
+                        <% if page.avatar.present? %>
+                        <%= image_tag page.avatar %>
+                        <% end %>
                     </div>
                     <h1 class="text-gray-900 font-bold text-xl leading-8 my-1"><%= "#{page.first_name} #{page.last_name}" %></h1>
                     <h3 class="text-gray-600 font-lg text-semibold leading-6">Profile</h3>

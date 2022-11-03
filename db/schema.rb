@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_01_080420) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_03_160615) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,6 +61,31 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_080420) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.string "slug"
+    t.string "gender"
+    t.date "birthday"
+    t.string "current_address"
+    t.string "telephone_number"
+    t.string "email"
+    t.string "other_links"
+    t.string "other_ling_name"
+    t.string "education"
+    t.date "education_start_date"
+    t.date "education_end_date"
+    t.string "education2"
+    t.date "education2_start_date"
+    t.date "education2_end_date"
+    t.string "experience"
+    t.date "experience_start_date"
+    t.date "experience_end_date"
+    t.string "experience2"
+    t.date "experience2_start_date"
+    t.date "experience2_end_date"
+    t.string "experience3"
+    t.date "experience3_start_date"
+    t.date "experience3_end_date"
+    t.string "experience4"
+    t.date "experience4_start_date"
+    t.date "experience4_end_date"
     t.index ["slug"], name: "index_pages_on_slug", unique: true
     t.index ["user_id"], name: "index_pages_on_user_id"
   end
