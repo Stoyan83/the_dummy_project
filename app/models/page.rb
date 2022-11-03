@@ -1,6 +1,5 @@
 class Page < ApplicationRecord
-  extend FriendlyId
-  
+  extend FriendlyId 
 
   PAGE_LIMIT = 1
 
@@ -10,9 +9,11 @@ class Page < ApplicationRecord
 
   validate on: :create do
     if user.guest? && user.pages.length > PAGE_LIMIT 
-    errors.add(:user, message: "have too many pages")
+    errors.add(:user, message: "have too many pages", type: 'danger')
     end
   end
+
+  validates :first_name, :last_name, :about, presence: true
 
   def slug_candidates  
 

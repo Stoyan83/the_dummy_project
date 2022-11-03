@@ -1,15 +1,14 @@
 <%= form_with(model: page, class: "contents") do |form| %>
   <% if page.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>
-
-      <ul>
-        <% page.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+  <div id="error_explanation" class="bg-red-100 rounded-md p-4 mb-4">
+    <% page.errors.each do |error| %>
+      <%= content_tag :div, class: build_alert_classes(:danger) do%>
+        <button><span>&times;</span></button>
+        <%= error.full_message %>
+      <% end %>
+    <% end %>
   <% end %>
+
 
   <div class="my-5">
     <%= form.label :first_name %>

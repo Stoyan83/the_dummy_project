@@ -1,14 +1,9 @@
-<% if current_user %>
-  <% if !current_user.guest %>
-    <h1> Welcome <%= current_user.username.capitalize %></h1>  
-  <% elsif current_user.guest %>
-    <h1>Welcome<%= current_user.username[0..4].capitalize %></h1>
-    <h1>Welcome<%= current_user.id %></h1> 
-    <h1>Welcome<%= current_user.username[0..4].capitalize %></h1>  
-    <h1>Welcome<%= current_user.email %></h1> 
-    <h1>Welcome<%= current_user.guest? %></h1>  
-    <h1>Welcome<%= current_user.id %></h1> 
-  <% end %>
+
+<% if !current_user.guest %>
+  <h1> Welcome <%= current_user.username.capitalize %></h1>  
+<% elsif current_user.guest %>
+    <h1>Welcome <%= current_user.username[0..4].capitalize %></h1>
+    <h1>Welcome <%= current_user.id %></h1> 
 <% end %>
 
 

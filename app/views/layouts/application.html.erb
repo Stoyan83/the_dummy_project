@@ -6,7 +6,7 @@
 
   <body>
    <%= render 'shared/navbar' %>
-   <% if current_page?(root_path) %>
+   <% if not devise_controller? %>
    <%= render 'shared/flash' %>
    <% end %>
     <%= yield %>
