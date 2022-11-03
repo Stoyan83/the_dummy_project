@@ -5,7 +5,9 @@
   </head>
 
   <body>
+  <% unless controller_name == "pages"  && action_name == "show" %>
    <%= render 'shared/navbar' %>
+   <% end %>
    <% if not devise_controller? %>
    <%= render 'shared/flash' %>
    <% end %>

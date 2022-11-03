@@ -6,6 +6,9 @@
   </div>
 
   <div id="pages" class="min-w-full">
-    <%= render @pages %>
+    <% for page in current_user.pages %>
+    <%= page.first_name %>
+    <%= link_to "Show this page", page, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% end %>
   </div>
 </div>
