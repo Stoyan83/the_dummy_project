@@ -7,5 +7,5 @@ class Ability
     user ||= User.new
     can :manage, Page, user_id: user.id
     can :show, Page
-    end
   end
+end

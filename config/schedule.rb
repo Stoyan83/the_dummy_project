@@ -19,6 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every :hour do 
+every :hour do
   rake "guests:cleanup"
 end

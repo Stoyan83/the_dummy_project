@@ -1,12 +1,12 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "pages/show", type: :view do
   before(:each) do
     assign(:page, Page.create!(
-      first_name: "First Name",
-      last_name: "Last Name",
-      about: "MyText"
-    ))
+                    first_name: "First Name",
+                    last_name: "Last Name",
+                    about: "MyText"
+                  ))
   end
 
   it "renders attributes in <p>" do

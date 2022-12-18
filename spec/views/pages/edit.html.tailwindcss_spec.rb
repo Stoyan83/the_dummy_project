@@ -1,13 +1,13 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "pages/edit", type: :view do
-  let(:page) {
+  let(:page) do
     Page.create!(
       first_name: "MyString",
       last_name: "MyString",
       about: "MyText"
     )
-  }
+  end
 
   before(:each) do
     assign(:page, page)
@@ -17,7 +17,6 @@ RSpec.describe "pages/edit", type: :view do
     render
 
     assert_select "form[action=?][method=?]", page_path(page), "post" do
-
       assert_select "input[name=?]", "page[first_name]"
 
       assert_select "input[name=?]", "page[last_name]"

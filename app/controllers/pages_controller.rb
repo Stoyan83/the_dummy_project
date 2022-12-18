@@ -1,21 +1,16 @@
 class PagesController < ApplicationController
-  
   load_and_authorize_resource
 
-  before_action :set_page, only: %i[ show edit update destroy ]
-  # before_action :authenticate_user!, except: [:show]  
-
+  before_action :set_page, only: %i[show edit update destroy]
+  # before_action :authenticate_user!, except: [:show]
 
   # GET /pages or /pages.json
-  def index    
-    @pages = current_user.pages.order(created_at: :asc)    
+  def index
+    @pages = current_user.pages.order(created_at: :asc)
   end
-
 
   # GET /pages/1 or /pages/1.json
-  def show
-    @pages = Page.all
-  end
+  def show; end
 
   # GET /pages/new
   def new
@@ -65,16 +60,16 @@ class PagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_page
-      @page = Page.find(params[:id])
-  
-      redirect_to @page, status: :moved_permanently if params[:id] != @page.slug     
-    end
 
-    # Only allow a list of trusted parameters through.
-    def page_params
-      params.require(:page).permit(:first_name, :last_name, :about, :avatar)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_page
+    @page = Page.find(params[:id])
 
+    redirect_to @page, status: :moved_permanently if params[:id] != @page.slug
+  end
+
+  # Only allow a list of trusted parameters through.
+  def page_params
+    params.require(:page).permit(:first_name, :last_name, :about, :avatar)
+  end
 end
