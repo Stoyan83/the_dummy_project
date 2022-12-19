@@ -1,0 +1,13 @@
+<h1><%= pluralize(@pages.count, "Result") %></h1>
+<table>
+<thead>
+  <th><%= sort_link(@query, :first_name, "First Name", default_order: :asc) %></th>
+<thead>
+<tbody>
+  <% @pages.each do |page| %>
+    <tr>
+      <td><%= link_to page.first_name, page %></td>
+    </tr>
+<% end %>
+</tbody>
+</table>

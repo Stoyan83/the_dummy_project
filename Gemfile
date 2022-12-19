@@ -31,6 +31,8 @@ gem "image_processing", ">= 1.2"
 
 gem "cancancan"
 
+gem 'ransack'
+
 gem "whenever", require: false
 
 gem "rubocop", require: false
