@@ -177,25 +177,25 @@
                             <% if page.experience %>
                                 <li>
                                     <div class="text-teal-600"><%= page.experience %></div>
-                                    <div class="text-gray-500 text-xs"><%= page.experience_start_date %>-<%= page.experience_end_date %></div>
+                                    <div class="text-gray-500 text-xs"><%= page.experience_start_date %> - <%= page.experience_end_date %></div>
                                 </li>
                             <% end %>
                             <% if page.experience2 %>
                                 <li>
                                     <div class="text-teal-600"><%= page.experience2 %></div>
-                                    <div class="text-gray-500 text-xs"><%= page.experience2_start_date %>-<%= page.experience2_end_date %></div>
+                                    <div class="text-gray-500 text-xs"><%= page.experience2_start_date %> - <%= page.experience2_end_date %></div>
                                 </li>
                             <% end %>
                             <% if page.experience3 %>
                                 <li>
                                     <div class="text-teal-600"><%= page.experience3 %></div>
-                                    <div class="text-gray-500 text-xs"><%= page.experience3_start_date %>-<%= page.experience3_end_date %></div>
+                                    <div class="text-gray-500 text-xs"><%= page.experience3_start_date %> - <%= page.experience3_end_date %></div>
                                 </li>
                             <% end %>
                             <% if page.experience4 %>
                                 <li>
                                     <div class="text-teal-600"><%= page.experience4 %></div>
-                                    <div class="text-gray-500 text-xs"><%= page.experience4_start_date %>-<%= page.experience4_end_date %></div>
+                                    <div class="text-gray-500 text-xs"><%= page.experience4_start_date %> - <%= page.experience4_end_date %></div>
                                 </li>
                             <% end %>
                             
@@ -220,19 +220,20 @@
                                 </span>
                                 <span class="tracking-wide">Education</span>
                             </div>
-                            <% if page.education %>
+                            <% if page.education != '' %>
                             <ul class="list-inside space-y-2">
                                 <li>
                                     <div class="text-teal-600"><%= page.education %></div>
-                                    <div class="text-gray-500 text-xs"><%= page.education_start_date %>-<%= page.education_end_date %></div>
+                                    <div class="text-gray-500 text-xs"><%= page.education_start_date %> - <%= page.education_end_date %></div>
                                 </li>
-                            <% end %>
-                            <% if page.education2 %>
+                            
+                            <% if page.education2 != '' %>
                                 <li>
                                     <div class="text-teal-600"><%= page.education2 %></div>
-                                    <div class="text-gray-500 text-xs"><%= page.education2_start_date %>-<%= page.education2_end_date %></div>
+                                    <div class="text-gray-500 text-xs"><%= page.education2_start_date %> - <%= page.education2_end_date %></div>
                                 </li>
                             </ul>
+                            <% end %>
                             <% end %>
                         </div>
                     </div>

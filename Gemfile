@@ -31,7 +31,7 @@ gem "image_processing", ">= 1.2"
 
 gem "cancancan"
 
-gem 'ransack'
+gem "ransack"
 
 gem "whenever", require: false
 

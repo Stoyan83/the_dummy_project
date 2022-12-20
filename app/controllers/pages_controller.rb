@@ -70,13 +70,13 @@ class PagesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def page_params
-    params.require(:page).permit(:first_name, :last_name, :about, :avatar, 
-      :page_type, :gender, :birthday, :current_address,
-       :telephone_number, :email, :other_links, :education, :education_start_date, 
-       :education_end_date, :education2, :education2_start_date, 
-       :education2_end_date, :experience, :experience_start_date, :experience_end_date,
-       :experience2, :experience2_start_date, :experience2_end_date,
-       :experience3, :experience3_start_date, :experience3_end_date,
-       :experience4, :experience4_start_date, :experience4_end_date, :current_role)
+    params.require(:page).permit(:first_name, :last_name, :about, :avatar,
+                                 :page_type, :gender, :birthday, :current_address,
+                                 :telephone_number, :email, :other_links, :education, :education_start_date,
+                                 :education_end_date, :education2, :education2_start_date,
+                                 :education2_end_date, :experience, :experience_start_date, :experience_end_date,
+                                 :experience2, :experience2_start_date, :experience2_end_date,
+                                 :experience3, :experience3_start_date, :experience3_end_date,
+                                 :experience4, :experience4_start_date, :experience4_end_date, :current_role)
   end
 end
