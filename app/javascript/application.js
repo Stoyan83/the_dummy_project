@@ -39,10 +39,10 @@ document.addEventListener("turbo:load", function() {
   $('#hid').click(function () {
       if ($('#hidden').is(':hidden')) {
           $('#hidden').show();
-          $('#hid').text('Hide').button("refresh");
+          $('#hid').text('Hide').show();
       } else {
           $('#hidden').hide();
-          $('#hid').text('Edit').button("refresh");
+          $('#hid').text('Edit').show();
       }
     }); 
   });
@@ -52,10 +52,10 @@ document.addEventListener("turbo:load", function() {
     $('#ph').click(function () {
         if ($('.hid').is(':hidden')) {
             $('.hid').show();
-            $('#ph').text('Hide password fields').button("refresh");
+            $('#ph').text('Hide password fields').show();
         } else {
             $('.hid').hide();
-            $('#ph').text('Change password').button("refresh");
+            $('#ph').text('Change password').show();
         }
       }); 
     });
