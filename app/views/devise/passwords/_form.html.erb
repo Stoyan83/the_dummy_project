@@ -16,12 +16,13 @@
             </div>
             <div class="flex items-baseline justify-between">
                     <button class="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Reset</button>                 
-                     <%= link_to 'Cancel', root_path, class: "cursor-pointer inline-flex items-center px-6 py-2 mt-4 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-4" %>               
+                     <%= link_to 'Cancel', root_path, class: "inline-block rounded-lg px-4 py-2 border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" %>               
+                   </div>  
                      <p class="text-sm text-blue-600 hover:underline">
                    
                         <%= link_to "Don't have an account yet? Sign up", new_user_registration_path, data: { turbo_frame: 'modal' }, class: "font-medium text-primary-600 hover:underline dark:text-primary-500" %>
                     </p>
-                </div>
+                
     </div>
   </div>
 <% end %>

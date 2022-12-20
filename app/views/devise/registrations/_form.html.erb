@@ -32,14 +32,21 @@
                             <%= f.password_field :password_confirmation, placeholder: :Confirm_password,
                                 class: "w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" %>
               </div>
-
+        <div class="flex items-start mb-6">
+        <div class="flex items-center h-5">
+        <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required>
+        </div>
+        <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400">I agree with the <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a>.</label>
+        </div>
               <div class="flex items-baseline justify-between">
                     <button class="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900 w-32">Sign up</button>                 
-                     <%= link_to 'Cancel', root_path, class: "cursor-pointer inline-flex items-center px-6 py-2 mt-4 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-4" %>                         
+                    <%= link_to 'Cancel', root_path, class: "inline-block rounded-lg px-10 mt-4 py-2 border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" %>                         
+              
+              </div>
                <p class="text-sm text-blue-600 hover:underline ">
                    
                   <%= link_to ' Have an account? Login', new_user_session_path, data: { turbo_frame: 'modal' }, class: "font-medium text-primary-600 hover:underline dark:text-primary-500 " %>
               </p>
-              </div>
+              
 <% end %> 
 
