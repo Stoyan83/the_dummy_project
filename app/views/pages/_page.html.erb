@@ -65,7 +65,7 @@
                         <% end %>
                     </div>
                     <h1 class="text-gray-900 font-bold text-xl leading-8 my-1"><%= "#{page.first_name} #{page.last_name}" %></h1>
-                    <h3 class="text-gray-600 font-lg text-semibold leading-6">Profile</h3>
+                    <h3 class="text-gray-600 font-lg text-semibold leading-6"><%= page.current_role %></h3>
                     <p class="text-sm text-gray-500 hover:text-gray-600 leading-6"><%= page.about %></p>
                     <ul
                         class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
@@ -121,31 +121,33 @@
                                 <div class="px-4 py-2 font-semibold">Last Name</div>
                                 <div class="px-4 py-2"><%= page.last_name %></div>
                             </div>
+                            <% if page.gender %>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Gender</div>
-                                <div class="px-4 py-2">Female</div>
+                                <div class="px-4 py-2"><%= page.gender %></div>
                             </div>
+                            <% end %>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Birthday</div>
-                                <div class="px-4 py-2">+11 998001001</div>
+                                <div class="px-4 py-2"><%= page.birthday %></div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Current Address</div>
-                                <div class="px-4 py-2">Beech Creek, PA, Pennsylvania</div>
+                                <div class="px-4 py-2"><%= page.current_address %></div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Contact No.</div>
-                                <div class="px-4 py-2">Arlington Heights, IL, Illinois</div>
+                                <div class="px-4 py-2"><%= page.telephone_number %></div>
                             </div>
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Email.</div>
+                                <div class="px-4 py-2 font-semibold">Email</div>
                                 <div class="px-4 py-2">
-                                    <a class="text-blue-800" href="mailto:jane@example.com">jane@example.com</a>
+                                    <a class="text-blue-800" href="mailto:jane@example.com"><%= page.email %></a>
                                 </div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">LinkedIn</div>
-                                <div class="px-4 py-2">Feb 06, 1998</div>
+                                <div class="px-4 py-2"><%= page.other_links %></div>
                             </div>
                         </div>
                     </div>
@@ -170,23 +172,33 @@
                                 </span>
                                 <span class="tracking-wide">Experience</span>
                             </div>
+                            
                             <ul class="list-inside space-y-2">
+                            <% if page.experience %>
                                 <li>
-                                    <div class="text-teal-600">Experience.</div>
-                                    <div class="text-gray-500 text-xs"><%= "#{page.first_name} #{page.last_name}" %></div>
+                                    <div class="text-teal-600"><%= page.experience %></div>
+                                    <div class="text-gray-500 text-xs"><%= page.experience_start_date %>-<%= page.experience_end_date %></div>
                                 </li>
+                            <% end %>
+                            <% if page.experience2 %>
                                 <li>
-                                    <div class="text-teal-600">Experience.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                    <div class="text-teal-600"><%= page.experience2 %></div>
+                                    <div class="text-gray-500 text-xs"><%= page.experience2_start_date %>-<%= page.experience2_end_date %></div>
                                 </li>
+                            <% end %>
+                            <% if page.experience3 %>
                                 <li>
-                                    <div class="text-teal-600">Experience.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                    <div class="text-teal-600"><%= page.experience3 %></div>
+                                    <div class="text-gray-500 text-xs"><%= page.experience3_start_date %>-<%= page.experience3_end_date %></div>
                                 </li>
+                            <% end %>
+                            <% if page.experience4 %>
                                 <li>
-                                    <div class="text-teal-600">Experience.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                    <div class="text-teal-600"><%= page.experience4 %></div>
+                                    <div class="text-gray-500 text-xs"><%= page.experience4_start_date %>-<%= page.experience4_end_date %></div>
                                 </li>
+                            <% end %>
+                            
                             </ul>
                                     <div class="bg-white p-3 "></div>
                                     <div class="bg-white p-3 "></div>
@@ -208,16 +220,20 @@
                                 </span>
                                 <span class="tracking-wide">Education</span>
                             </div>
+                            <% if page.education %>
                             <ul class="list-inside space-y-2">
                                 <li>
-                                    <div class="text-teal-600">Education</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                    <div class="text-teal-600"><%= page.education %></div>
+                                    <div class="text-gray-500 text-xs"><%= page.education_start_date %>-<%= page.education_end_date %></div>
                                 </li>
+                            <% end %>
+                            <% if page.education2 %>
                                 <li>
-                                    <div class="text-teal-600">Education</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                    <div class="text-teal-600"><%= page.education2 %></div>
+                                    <div class="text-gray-500 text-xs"><%= page.education2_start_date %>-<%= page.education2_end_date %></div>
                                 </li>
                             </ul>
+                            <% end %>
                         </div>
                     </div>
                     <!-- End of Experience and education grid -->

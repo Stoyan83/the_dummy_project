@@ -1,2 +1,5 @@
-<%= render @page %>
-
+<% if @page # @page.page_type == "as" %>
+  <%= render @page %>
+<% else %>
+  <%= render 'test' %>
+<% end %>

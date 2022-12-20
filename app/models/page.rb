@@ -11,7 +11,7 @@ class Page < ApplicationRecord
     errors.add(:user, message: "have too many pages", type: "danger") if user.guest? && user.pages.length > PAGE_LIMIT
   end
 
-  validates :first_name, :last_name, :about, presence: true
+  validates :first_name, :last_name, :about, :page_type, presence: true
 
   def slug_candidates
     [
