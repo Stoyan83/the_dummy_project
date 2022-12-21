@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   devise_scope :user do
-    get "users" => "devise/registrations#new"
+    get "users" => "devise/sessions#new"
   end
 
 end

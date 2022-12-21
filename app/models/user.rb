@@ -20,6 +20,9 @@ class User < ApplicationRecord
 
   friendly_id :username, use: %i[slugged finders history]
 
+  scope :all_except, lambda {|user| where.not(id: user)}
+
+
   def validate_username
     errors.add(:username, :invalid) if User.where(username:).exists?
   end

@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   def set_query
     @query = Page.ransack(params[:q])
   end
+  
 
   protected
 
