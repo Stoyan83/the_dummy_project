@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_many :pages, dependent: :destroy
   has_one_attached :avatar
 
+  has_many :messages
+  has_many :joined_rooms, through: :participant, source: :room
+
   validate :validate_username, on: :create
   validates_uniqueness_of :username, :email
 
@@ -21,6 +24,8 @@ class User < ApplicationRecord
   friendly_id :username, use: %i[slugged finders history]
 
   scope :all_except, lambda {|user| where.not(id: user)}
+
+  after_create_commit { broadcast_append_to 'users' }
 
 
   def validate_username
