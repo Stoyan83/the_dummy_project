@@ -1,26 +1,11 @@
 class RoomsController < ApplicationController
-  # before_action :authenticate_user! 
+  # before_action :authenticate_user!   
+  before_action :set_users
 
-
-  def index
-    @room = Room.new
-    @rooms = Room.public_rooms
-
-    @users = User.all_except(current_user)
-    render 'index'
+  def index         
   end
 
-  def show
-    # @single_room = Room.find(params[:id])
-
-    @room = Room.new
-    @rooms = Room.public_rooms
-
-    @message = Message.new
-    @messages = @single_room.messages.order(created_at: :asc)
-
-    @users = User.all_except(current_user)
-    render 'index'
+  def show            
   end
 
   def create
@@ -35,11 +20,9 @@ class RoomsController < ApplicationController
     params.require(:room).permit(:name, :is_private)
   end
 
-  def confirm_participant
-    return unless @room.is_private
 
-    is_participant = Participant.where(user_id: user.id, room_id: room.id).first
-    throw :error unless is_participant
+  def set_users
+    @users = User.all_except(current_user)
   end
 
 end
